@@ -20,7 +20,7 @@ const UserTable = (pros)=>{
 
                        pros.rows.length>0 ? pros.rows.map(row=>(
                             <TableRow key={row.id} sx={{transitionDuration: '2s', '&:hover':{
-                                    backgroundColor:"#c1c2f6",
+                                    backgroundColor:"#e9a6f1",
                                     color:'white'
                                 }}} >
                                 <TableCell componet='th' scope='row'>{row.id}</TableCell>
