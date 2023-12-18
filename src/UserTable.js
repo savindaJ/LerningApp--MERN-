@@ -5,8 +5,8 @@ import {Paper ,Button, Table, TableBody, TableCell, TableContainer, TableHead, T
 
 const UserTable = (pros)=>{
     return(
-        <TableContainer component={Paper}>
-            <Table sx={{width:"70vw",margin:'auto'}}>
+        <TableContainer component={Paper} sx={{marginTop:'50px'}}>
+            <Table sx={{width:"70vw",margin:'auto',border:'1px solid black'}}>
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>

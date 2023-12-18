@@ -3,8 +3,8 @@ import {useState} from "react";
 
 const UserForm = (par) => {
 
-    const [id,setId] = useState();
-    const [name,setName] = useState();
+    const [id,setId] = useState('');
+    const [name,setName] = useState('');
 
     return (
         <Grid
@@ -12,12 +12,14 @@ const UserForm = (par) => {
             spacing={2}
             sx={{
                 backgroundColor: 'white',
-                marginBottom: '30px',
-                display: 'block'
+                margin:'auto',
+                display: 'block',
+                width:'60vw',
+                height:'max-content'
             }}
         >
             <Grid item xs={12}>
-                <Typography components={'h1'} sx={{color: 'black'}}>Sample Form</Typography>
+                <Typography components={'h1'} sx={{color: 'black',marginBottom:'50px'}}>Sample Form</Typography>
                 <Grid item xs={12} sm={6} sx={{display:'flex'}}>
                     <Typography component={'label'}
                                 htmlFor='id'

@@ -9,6 +9,10 @@ const usr = [
     }, {
         id: "U002",
         name: "savinda"
+    },
+    {
+        id:"U003",
+        name: "Sunil"
     }
 ]
 const User = () => {
