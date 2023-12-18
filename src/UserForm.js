@@ -64,13 +64,13 @@ const UserForm = (par) => {
             </Grid>
             <Button sx={{
                 margin:'auto',
-                backgroundColor:'red',
+                backgroundColor:'blue',
                 color:'white',
                 marginLeft:'15px',
                 marginTop:'20px',
-                '$:hover':{
+                '&:hover':{
                     backgroundColor:"black",
-                    color:'black'
+                    color:'white'
                 }
 
             }}>Submit</Button>

@@ -18,9 +18,9 @@ const UserTable = (pros)=>{
                 <TableBody>
                     {
                         pros.rows.map(row=>(
-                            <TableRow key={row.id} sx={{'&:last-child td , &:last-child td ': {border:0}}}>
-                                <TableCell componet='th' scope='row'>{pros.rows.id}</TableCell>
-                                <TableCell componet='th' scope='row'>{pros.rows.name}</TableCell>
+                            <TableRow key={row.id} >
+                                <TableCell componet='th' scope='row'>{row.id}</TableCell>
+                                <TableCell componet='th' scope='row'>{row.name}</TableCell>
                                 <TableCell>
                                     <Button
                                         sx={{margin:'0px 10px'}}
