@@ -3,10 +3,10 @@ import {Paper ,Button, Table, TableBody, TableCell, TableContainer, TableHead, T
 
 
 
-const UserTable = ({usr})=>{
+const UserTable = (pros)=>{
     return(
         <TableContainer component={Paper}>
-            <Table>
+            <Table sx={{width:"70vw",margin:'auto'}}>
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>
@@ -17,10 +17,10 @@ const UserTable = ({usr})=>{
 
                 <TableBody>
                     {
-                        usr.map(row=>(
+                        pros.rows.map(row=>(
                             <TableRow key={row.id} sx={{'&:last-child td , &:last-child td ': {border:0}}}>
-                                <TableCell componet='th' scope='row'>{row.id}</TableCell>
-                                <TableCell componet='th' scope='row'>{row.name}</TableCell>
+                                <TableCell componet='th' scope='row'>{pros.rows.id}</TableCell>
+                                <TableCell componet='th' scope='row'>{pros.rows.name}</TableCell>
                                 <TableCell>
                                     <Button
                                         sx={{margin:'0px 10px'}}
