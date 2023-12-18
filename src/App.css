@@ -21,3 +21,8 @@
   font-family: Calibri;
 
 }
+
+.delete{
+  background-color: #e87f7f;
+  transition-duration: 1s;
+}

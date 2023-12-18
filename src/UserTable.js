@@ -19,16 +19,19 @@ const UserTable = (pros)=>{
                     {
 
                        pros.rows.length>0 ? pros.rows.map(row=>(
-                            <TableRow key={row.id} >
+                            <TableRow key={row.id} sx={{transitionDuration: '2s', '&:hover':{
+                                    backgroundColor:"#c1c2f6",
+                                    color:'white'
+                                }}} >
                                 <TableCell componet='th' scope='row'>{row.id}</TableCell>
                                 <TableCell componet='th' scope='row'>{row.name}</TableCell>
                                 <TableCell>
                                     <Button
-                                        sx={{margin:'0px 10px'}}
+                                        sx={{margin:'0px 10px',border:'1px solid black',backgroundColor:'#8587ed',color:'black'}}
                                         onClick={()=>{}}
                                     >Update</Button>
                                     <Button
-                                        sx={{margin:'0px 10px'}}
+                                        sx={{margin:'0px 10px',border:'1px solid black',backgroundColor:'#ed4040',color:'black'}}
                                         onClick={()=>{}}
                                     >Delete</Button>
                                 </TableCell>
