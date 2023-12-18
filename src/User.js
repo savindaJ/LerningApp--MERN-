@@ -13,7 +13,7 @@ const usr = [
 ]
 const User = () => {
     return (
-        <Box>
+        <Box sx={{width:'calc(100%-100px)'}}>
             <UserForm/>
             <UserTable rows={usr}/>
         </Box>

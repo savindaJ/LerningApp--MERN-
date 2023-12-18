@@ -17,7 +17,8 @@ const UserTable = (pros)=>{
 
                 <TableBody>
                     {
-                        pros.rows.map(row=>(
+
+                       pros.rows.length>0 ? pros.rows.map(row=>(
                             <TableRow key={row.id} >
                                 <TableCell componet='th' scope='row'>{row.id}</TableCell>
                                 <TableCell componet='th' scope='row'>{row.name}</TableCell>
@@ -32,7 +33,9 @@ const UserTable = (pros)=>{
                                     >Delete</Button>
                                 </TableCell>
                             </TableRow>
-                        ))
+                        )) : (
+                            alert("no Users !")
+                       )
                     }
                 </TableBody>
             </Table>
