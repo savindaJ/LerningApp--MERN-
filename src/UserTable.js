@@ -19,12 +19,12 @@ const UserTable = (pros)=>{
                     {
 
                        pros.rows.length>0 ? pros.rows.map(row=>(
-                            <TableRow key={row.id} sx={{transitionDuration: '2s', '&:hover':{
+                            <TableRow key={row.user_id} sx={{transitionDuration: '2s', '&:hover':{
                                     backgroundColor:"#e9a6f1",
                                     color:'white'
                                 }}} >
-                                <TableCell componet='th' scope='row'>{row.id}</TableCell>
-                                <TableCell componet='th' scope='row'>{row.name}</TableCell>
+                                <TableCell componet='th' scope='row'>{row.user_id}</TableCell>
+                                <TableCell componet='th' scope='row'>{row.user_name}</TableCell>
                                 <TableCell>
                                     <Button
                                         sx={{margin:'0px 10px',border:'1px solid black',backgroundColor:'#8587ed',color:'black'}}
