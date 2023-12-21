@@ -1,10 +1,20 @@
 import {Button, Grid, Input, Typography} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const UserForm = (par) => {
+const UserForm = (par,submitted) => {
 
     const [id,setId] = useState('');
     const [name,setName] = useState('');
+
+    useEffect(()=>{
+        if (!submitted.sub){
+            setId('');
+            setName('');
+        }else {
+            setId('');
+            setName('');
+        }
+    },[submitted.sub])
 
     return (
         <Grid
@@ -80,7 +90,10 @@ const UserForm = (par) => {
                     color:'white'
                 }
 
-            }}>Submit</Button>
+            }}
+                    onClick={()=> par.adduser({id:id,name:name})}
+
+            >Submit</Button>
         </Grid>
     );
 }

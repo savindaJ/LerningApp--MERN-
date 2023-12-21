@@ -7,6 +7,8 @@ import Axios from "axios";
 const User = () => {
     const [usr,setUsers] = useState([]);
 
+    const [submitted,setSubmit] = useState(false);
+
     useEffect(()=> {
         getUser();
     },[]);
@@ -20,9 +22,31 @@ const User = () => {
         })
 
     }
+
+    const addUser = (data)=>{
+
+        setSubmit(true);
+
+        const payLoad = {
+            id: data.id,
+            name: data.name
+        }
+
+        Axios.post('http://localhost:3001/createuser',payLoad).then(()=>{
+            getUser();
+            setSubmit(false);
+        }).catch(err =>{
+            alert(err.text)
+        })
+    }
+
+
     return (
         <Box sx={{width:'calc(100%-100px)'}}>
-            <UserForm/>
+            <UserForm
+                adduser={addUser}
+                sub = {submitted}
+            />
             <UserTable rows={usr}/>
         </Box>
     );
