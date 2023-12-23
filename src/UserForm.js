@@ -1,11 +1,13 @@
 import {Button, Grid, Input, Typography} from "@mui/material";
 import {useState} from "react";
 
-const UserForm = (par, par2) => {
+const UserForm = (par) => {
 
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     let txt = 'Save';
+
+
 
     return (
         <Grid
@@ -84,6 +86,9 @@ const UserForm = (par, par2) => {
             }}
                     onClick={() => {
                         par.adduser({id: id, name: name})
+                        setName('')
+                        setId('')
+
                     }}
 
             >
