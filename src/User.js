@@ -8,6 +8,8 @@ const User = () => {
     const [usr,setUsers] = useState([]);
 
     const [submitted,setSubmit] = useState(false);
+    const [edit,setEdit] = useState(false);
+    const [selectUser,setSlectedUser] = useState({});
 
     useEffect(()=> {
         getUser();
@@ -18,7 +20,7 @@ const User = () => {
             console.log(responce.data);
             setUsers(responce.data || []);
         }).catch(error=>{
-            console.log("err",error);
+            alert(error.text)
         })
 
     }
@@ -40,14 +42,34 @@ const User = () => {
         })
     }
 
+    const updateUser = (updateData)=>{
+        const payLoad = {
+            id: updateData.id,
+            name: updateData.name
+        }
+
+        Axios.put('http://localhost:3001/updateuser',payLoad).then(()=>{
+            getUser();
+            setSubmit(false);
+        }).catch(err =>{
+            alert(err.text)
+        })
+
+    }
+
 
     return (
         <Box sx={{width:'calc(100%-100px)'}}>
             <UserForm
                 adduser={addUser}
+                updateUser={updateUser}
                 sub = {submitted}
+                upData={setSlectedUser}
+                e={edit}
             />
-            <UserTable rows={usr}/>
+            <UserTable rows={usr}
+                selectedUser={selectUser}
+            />
         </Box>
     );
 
