@@ -70,6 +70,7 @@ const User = () => {
         <Box sx={{width:'calc(100%-100px)'}}>
             <UserForm
                 adduser={addUser}
+                update={updateUser}
             />
             <UserTable rows={usr}
             />

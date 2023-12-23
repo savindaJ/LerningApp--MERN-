@@ -1,6 +1,6 @@
 import {Paper ,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 
-const UserTable = (pros,selectUser,last)=>{
+const UserTable = (pros)=>{
 
     return(
         <TableContainer component={Paper} sx={{marginTop:'50px'}}>
