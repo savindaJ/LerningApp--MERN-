@@ -7,10 +7,6 @@ import Axios from "axios";
 const User = () => {
     const [usr,setUsers] = useState([]);
 
-    const [submitted,setSubmit] = useState(false);
-    const [edit,setEdit] = useState(false);
-    const [selectUser,setSlectedUser] = useState({});
-
     useEffect(()=> {
         getUser();
     },[]);
@@ -27,8 +23,6 @@ const User = () => {
 
     const addUser = (data)=>{
 
-        setSubmit(true);
-
         const payLoad = {
             id: data.id,
             name: data.name
@@ -36,7 +30,7 @@ const User = () => {
 
         Axios.post('http://localhost:3001/createuser',payLoad).then(()=>{
             getUser();
-            setSubmit(false);
+            alert("User Successfully Added !");
         }).catch(err =>{
             alert(err.text)
         })
@@ -50,7 +44,21 @@ const User = () => {
 
         Axios.put('http://localhost:3001/updateuser',payLoad).then(()=>{
             getUser();
-            setSubmit(false);
+            alert("Successfully updated !")
+        }).catch(err =>{
+            alert(err.text)
+        })
+
+    }
+
+    const deleteUser = (id)=>{
+        const payLoad = {
+            id: id.id
+        }
+
+        Axios.put('http://localhost:3001/deleteuser',payLoad).then(()=>{
+            getUser();
+            alert("Successfully deleted !")
         }).catch(err =>{
             alert(err.text)
         })
@@ -62,13 +70,8 @@ const User = () => {
         <Box sx={{width:'calc(100%-100px)'}}>
             <UserForm
                 adduser={addUser}
-                updateUser={updateUser}
-                sub = {submitted}
-                upData={setSlectedUser}
-                e={edit}
             />
             <UserTable rows={usr}
-                selectedUser={selectUser}
             />
         </Box>
     );

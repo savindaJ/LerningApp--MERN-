@@ -1,25 +1,11 @@
 import {Button, Grid, Input, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
-const UserForm = (par,update,submitted,val,e) => {
+const UserForm = (par) => {
 
     const [id,setId] = useState('');
     const [name,setName] = useState('');
-
-    let bool = e;
-
-    useEffect(()=>{
-        setId(val.upData.setSlectedUser(id));
-        setName(val.upData.setSlectedUser(name));
-    },[val.updata])
-
-
-   /* useEffect(()=>{
-        if (!submitted.submit){
-            setId('');
-            setName('');
-        }
-    },[submitted.submit])*/
+    let txt = 'Save';
 
     return (
         <Grid
@@ -96,11 +82,11 @@ const UserForm = (par,update,submitted,val,e) => {
                 }
 
             }}
-                    onClick={()=> bool ? update.updateUser({id:id,name:name}) : par.adduser({id:id,name:name})}
+                    onClick={()=> {par.adduser({id:id , name:name})}}
 
             >
                 {
-                    bool ? 'update' : 'save'
+                    txt
                 }
             </Button>
         </Grid>
