@@ -39,7 +39,10 @@ const User = () => {
 
     const addUser = (data) => {
 
-        console.log("Save !")
+       if (data.id === ''){
+           alert("Empty Values !")
+           return;
+       }
 
         const payLoad = {
             id: data.id,
