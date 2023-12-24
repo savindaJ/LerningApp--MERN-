@@ -1,13 +1,15 @@
 import {Button, Grid, Input, Typography} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const UserForm = (par) => {
+const UserForm = (par ,user) => {
 
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     let txt = 'Save';
 
+    useEffect(()=>{
 
+    });
 
     return (
         <Grid
