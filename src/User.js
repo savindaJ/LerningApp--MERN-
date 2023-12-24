@@ -1,4 +1,3 @@
-import UserForm from "./UserForm";
 import {
     Box,
     Button,
@@ -11,7 +10,7 @@ import {
     TableHead,
     TableRow, Typography
 } from "@mui/material";
-import UserTable from "./UserTable";
+
 import {useEffect, useState} from "react";
 import Axios from "axios";
 
@@ -22,15 +21,7 @@ const User = () => {
 
     const [name, setName] = useState('');
 
-    const [buttonText, setButtonText] = useState('Submit');
-
-    const handleClick = () => {
-        setButtonText('Loading...');
-
-        setTimeout(() => {
-            setButtonText('Submit');
-        }, 2000); // Reverts back to 'Submit' after 2 seconds
-    };
+    const buttonText = 'Submit';
 
     useEffect(() => {
         getUser();
@@ -79,15 +70,13 @@ const User = () => {
     }
 
     const deleteUser = (data) => {
-        console.log(data.id);
+        console.log(data)
 
-        const payLoad = {
-            id: data.id
+        const obj = {
+            'id' : 'U001'
         }
 
-        console.log(payLoad)
-
-        Axios.delete('http://localhost:3001/api/deleteuser', payLoad ).then(() => {
+        Axios.delete('http://localhost:3001/api/deleteuser' , obj).then(() => {
             getUser();
             alert("Successfully deleted !")
         }).catch(err => {
@@ -255,8 +244,7 @@ const User = () => {
                                                 color: 'black'
                                             }}
                                             onClick={() => {
-                                                setId(row.user_id)
-                                                deleteUser({id: id})
+                                                deleteUser({id: row.user_id})
                                             }}
                                         >Delete</Button>
                                     </TableCell>
