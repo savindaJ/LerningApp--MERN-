@@ -70,18 +70,28 @@ const User = () => {
     }
 
     const deleteUser = (data) => {
-        console.log(data)
-
-        const obj = {
-            'id' : 'U001'
+        if (window.confirm("Are you sure to delete this USER ?")){
+            Axios.put('http://localhost:3001/api/deleteuser', data)
+                .then(response => {
+                    console.log(response.data);
+                    getUser();
+                })
+                .catch(error => {
+                    if (error.response) {
+                        console.log(error.response.data);
+                        console.log(error.response.status);
+                        console.log(error.response.headers);
+                    } else if (error.request) {
+                        console.log(error.request);
+                    } else {
+                        console.log('Error', error.message);
+                    }
+                    console.log(error.config);
+                });
+        }else {
+            alert("Delete Cancel !")
         }
 
-        Axios.delete('http://localhost:3001/api/deleteuser' , obj).then(() => {
-            getUser();
-            alert("Successfully deleted !")
-        }).catch(err => {
-            alert(err.text)
-        })
     }
 
 
@@ -250,7 +260,8 @@ const User = () => {
                                     </TableCell>
                                 </TableRow>
                             )) : (
-                                alert("no Users !")
+                                // alert("no Users !")
+                                console.log("om empty !")
                             )
                         }
                     </TableBody>
